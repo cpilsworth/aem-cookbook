@@ -555,7 +555,7 @@ server=y,suspend=${CQ_JVM_DEBUG_SUSPENDED}"
 
     COUNTER=0
     # AEM6 takes a very long time to stop after the first run. Subsequent stops are usually much quicker.
-    TIMEOUT_SECONDS=300
+    TIMEOUT_SECONDS=600
     while ps -p $cqpid > /dev/null 2>&1 && [ $COUNTER -lt ${TIMEOUT_SECONDS} ]; do
         printf "."
         COUNTER=`expr $COUNTER + 1`

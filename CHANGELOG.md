@@ -1,3 +1,7 @@
+#1.1.16
+* Enhancements
+  * Fixed some ubuntu compat. issues
+
 #1.1.15
 * Fixes
   * Fix agent removal curl command.

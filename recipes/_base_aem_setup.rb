@@ -17,16 +17,26 @@
 # limitations under the License.
 
 # We need these for the jcr_node provider
-package 'libcurl-devel' do
-  action :nothing
-end.run_action(:install)
 
-package 'gcc' do
-  action :nothing
-end.run_action(:install)
+case node[:platform]
+  when "ubuntu","debian"
+    include_recipe "apt::default"
+    package ["build-essential"] do
+      action :nothing
+    end.run_action(:install)
+    package ["libcurl4-openssl-dev", "curl"] do
+      action :nothing
+    end.run_action(:install)
+  when "centos"
+    package "libcurl-devel" do
+      action :nothing
+    end.run_action(:install)
+    package "gcc" do
+      action :nothing
+    end.run_action(:install)
+end
 
 chef_gem 'curb' do
-  compile_time false if Chef::Resource::ChefGem.method_defined?(:compile_time)
   action :nothing
 end.run_action(:install)
 
