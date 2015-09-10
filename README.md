@@ -9,6 +9,7 @@ This cookbook installs and configures [Adobe Experience Manager (AEM)](http://ww
 
 ## Supported Versions
 
+* AEM 6.1.0
 * AEM 6.0.0
 * AEM 5.6.1
 * AEM 5.6.0
